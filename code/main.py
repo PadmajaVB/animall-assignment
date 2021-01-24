@@ -26,6 +26,7 @@ pyo.init_notebook_mode()
 
 train_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TrainingSet.csv'
 test_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TestingSet.csv'
+submission_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/Submission.csv'
 model_path = '/Users/pbhagwat/DEV/animall/animall-assignment/finalized_model.sav'
 
 
@@ -43,8 +44,8 @@ def predict_results(test_filepath, model_path):
     y_test_pred['Machine_State'] = model.predict(X_test)
     frame = [df_test[['Sl No.']], y_test_pred]
     result = pd.concat(frame, axis=1)
-    result['Machine_State'].replace({0: "Good", 1: "Bad"}, inplace=True)
-    result.to_csv('/Users/pbhagwat/DEV/animall/animall-assignment/data/Submission.csv')
+    result['Machine_State'].replace({0: 'Good', 1: 'Bad'}, inplace=True)
+    result.to_csv(submission_filepath)
     print(result.head())
     return y_test_pred
 
