@@ -10,7 +10,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-model_path = './data/finalized_model.sav'
+model_path = './finalized_model.sav'
 train_filepath = './data/TrainingSet.csv'
 
 
