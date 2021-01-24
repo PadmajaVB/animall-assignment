@@ -24,8 +24,8 @@ sns.set()
 pyo.init_notebook_mode()
 
 
-train_filepath = '/Users/pbhagwat/DEV/animall/TrainingSet.csv'
-test_filepath = '/Users/pbhagwat/DEV/animall/TestingSet.csv'
+train_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TrainingSet.csv'
+test_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TestingSet.csv'
 model_path = '/Users/pbhagwat/DEV/animall/finalized_model.sav'
 
 

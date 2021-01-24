@@ -10,8 +10,8 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-model_path = './finalized_model.sav'
-train_filepath = './TrainingSet.csv'
+model_path = './data/finalized_model.sav'
+train_filepath = './data/TrainingSet.csv'
 
 
 class MachineParams(BaseModel):
