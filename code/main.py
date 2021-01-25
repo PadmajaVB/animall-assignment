@@ -53,6 +53,7 @@ def train(train_filepath, model_path):
     fs, X_selected, y = feature_selection(X, y, 150)
     X_transformed, y_transformed = upsample_downsample(X_selected, y)
 
+    '''Uncomment the below two lines for 80-20 split training'''
     # X_train, X_val, y_train, y_val = train_test_data(X_transformed, y_transformed)
 
     # random_forest(X_train, X_val, y_train, y_val)
