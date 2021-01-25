@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import pandas as pd
+from config import get_config_filepaths
 from preprocessing import preprocess, upsample_downsample, feature_selection
 from model import random_forest_with_cv
 
@@ -24,15 +25,12 @@ sns.set()
 pyo.init_notebook_mode()
 
 
-train_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TrainingSet.csv'
-test_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/TestingSet.csv'
-submission_filepath = '/Users/pbhagwat/DEV/animall/animall-assignment/data/Submission.csv'
-model_path = '/Users/pbhagwat/DEV/animall/animall-assignment/finalized_model.sav'
+filepath_config = get_config_filepaths()
 
 
 def predict_results(test_filepath, model_path):
     y_test_pred = pd.DataFrame()
-    X, y = preprocess(train_filepath)
+    X, y = preprocess(filepath_config['train_path'])
     fs, _, _ = feature_selection(X, y, 150)
 
     df_test = pd.read_csv(test_filepath)
@@ -45,7 +43,7 @@ def predict_results(test_filepath, model_path):
     frame = [df_test[['Sl No.']], y_test_pred]
     result = pd.concat(frame, axis=1)
     result['Machine_State'].replace({0: 'Good', 1: 'Bad'}, inplace=True)
-    result.to_csv(submission_filepath)
+    result.to_csv(filepath_config['submission_path'])
     print(result.head())
     return y_test_pred
 
@@ -64,8 +62,8 @@ def train(train_filepath, model_path):
 
 
 def main():
-    # train(train_filepath, model_path)
-    predict_results(test_filepath, model_path)
+    train(filepath_config['train_path'], filepath_config['model_path'])
+    predict_results(filepath_config['test_path'], filepath_config['model_path'])
 
 
 if __name__ == '__main__':
