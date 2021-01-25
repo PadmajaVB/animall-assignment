@@ -2,7 +2,7 @@
 
 - **animall-assignment.ipnyb** contains different models for Faulty Machine State classification
 
-- **code/** folder contains the best performing model - BalancedRandomForestClassifier : Here the code for building fastAPI endpoint and docker deployment recides 
+- **code/** folder contains the best performing model - BalancedRandomForestClassifier : Here the code for building fastAPI endpoint and docker deployment resides 
 
 ### Commands 
 
