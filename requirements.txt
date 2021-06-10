@@ -3,7 +3,7 @@ plotly==4.11.0
 pydantic==1.7.3
 pandas_stubs==1.0.4.2
 imbalanced_learn==0.7.0
-fastapi==0.63.0
+fastapi==0.65.2
 imblearn==0.0
 ipython==7.19.0
 pandas==1.2.1
